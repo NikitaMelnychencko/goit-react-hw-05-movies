@@ -1,7 +1,11 @@
 import { renderParamsCard } from 'AppServise';
-import { lazy, Suspense } from 'react';
-import { useEffect, useState } from 'react';
-import { useParams, useRouteMatch } from 'react-router-dom';
+import { lazy, Suspense, useEffect, useState } from 'react';
+import {
+  useParams,
+  useRouteMatch,
+  useLocation,
+  useHistory,
+} from 'react-router-dom';
 import { Link, Route } from 'react-router-dom';
 import s from './MovieDetailsPage.module.scss';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
@@ -18,12 +22,21 @@ const Reviews = lazy(() =>
 const MovieDetailsPage = () => {
   const [movies, setMovies] = useState(null);
   const params = useParams();
+  const location = useLocation();
+  const history = useHistory();
   const { url } = useRouteMatch();
+  console.log(location);
   useEffect(() => {
     renderParamsCard(params.movieId).then(data => setMovies(data));
   }, []);
+  const onGoBack = () => {
+    history.push(location?.state?.from ?? '/movies');
+  };
   return (
     <>
+      <button type="button" onClick={onGoBack}>
+        Go Back
+      </button>
       {movies && (
         <div>
           <div className={s.ModalOneMovie}>
