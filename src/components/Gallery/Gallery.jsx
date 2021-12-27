@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Link, useLocation } from 'react-router-dom';
 import img from '../../img/no-image.png';
 import s from './Gallery.module.scss';
@@ -46,4 +47,8 @@ const Gallery = ({ movies }) => {
     </>
   );
 };
+Gallery.propTypes = {
+  movies: PropTypes.object.isRequired,
+};
+
 export default Gallery;

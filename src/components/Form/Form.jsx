@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { FiSearch } from 'react-icons/fi';
 import s from './Form.module.scss';
 
@@ -18,5 +19,10 @@ const Form = ({ handleSubmit, searchName, handleNameChange }) => {
       </button>
     </form>
   );
+};
+Form.propTypes = {
+  handleSubmit: PropTypes.func.isRequired,
+  searchName: PropTypes.string.isRequired,
+  handleNameChange: PropTypes.func.isRequired,
 };
 export default Form;

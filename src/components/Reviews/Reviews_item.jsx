@@ -1,4 +1,6 @@
+import PropTypes from 'prop-types';
 import s from './Reviews.module.scss';
+
 const ReviewsItem = ({ data }) => {
   return (
     <>
@@ -8,5 +10,8 @@ const ReviewsItem = ({ data }) => {
       </li>
     </>
   );
+};
+ReviewsItem.propTypes = {
+  data: PropTypes.object.isRequired,
 };
 export default ReviewsItem;

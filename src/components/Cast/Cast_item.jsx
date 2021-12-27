@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import s from './Cast.module.scss';
 import img from '../../img/no-image.png';
 const CastItem = ({ data }) => {
@@ -19,5 +20,8 @@ const CastItem = ({ data }) => {
       </li>
     </>
   );
+};
+CastItem.propTypes = {
+  data: PropTypes.object.isRequired,
 };
 export default CastItem;
