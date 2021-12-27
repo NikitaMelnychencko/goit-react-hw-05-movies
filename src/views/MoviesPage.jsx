@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { renderMovieGlobal } from 'AppServise';
 import Gallery from 'components/Gallery/Gallery';
 import { useHistory, useLocation } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Form from 'components/Form/Form';
 import Loader from 'react-loader-spinner';
@@ -27,14 +27,22 @@ const MoviesPage = () => {
       }
       return;
     }
-    renderMovieGlobal(page, submitName).then(data => {
-      if (status === 'pending') {
-        setMovies(data.results);
-      } else {
-        setMovies([...movies, ...data.results]);
-      }
-      setStatus('resolved');
-    });
+    renderMovieGlobal(page, submitName)
+      .then(data => {
+        if (data.results.length === 0)
+          throw new Error(
+            toast.error('No results were found for your search!'),
+          );
+        if (status === 'pending') {
+          setMovies(data.results);
+        } else {
+          setMovies([...movies, ...data.results]);
+        }
+        setStatus('resolved');
+      })
+      .catch(error => {
+        return toast.error(error);
+      });
   }, [page, submitName]);
 
   const handleNameChange = e => {
@@ -64,6 +72,7 @@ const MoviesPage = () => {
         searchName={searchName}
         handleNameChange={handleNameChange}
       />
+      <ToastContainer />
       {status === 'idle' && <p>Input value</p>}
       {status === 'pending' && (
         <Loader
