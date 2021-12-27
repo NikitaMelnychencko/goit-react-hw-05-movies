@@ -1,0 +1,47 @@
+@import 'style/shared';
+
+.SearchForm {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.SearchFormInput {
+  width: 100%;
+  color: $form-text-color;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.17;
+  outline: none;
+  background-color: transparent;
+  right: 2%;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 0.5px solid $form-text-color;
+  transition: border-bottom $time-cubic;
+
+  &::placeholder {
+    color: $primary-text-color;
+  }
+
+  &:hover,
+  &:focus {
+    border-bottom: 0.5px solid $primary-btn-accent-background;
+  }
+
+  @media screen and (min-width: $tablet-general) {
+    min-width: 336px;
+  }
+}
+
+.SearchFormButton {
+  position: absolute;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}

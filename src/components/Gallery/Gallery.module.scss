@@ -1,0 +1,88 @@
+@import 'style/shared';
+
+.GalleryList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: -15px;
+}
+
+.GalleryListItem {
+  display: block;
+  height: 440px;
+  max-width: 280px;
+  margin: 15px;
+  cursor: pointer;
+  background-color: $primary-background;
+  border-radius: 5px;
+
+  z-index: auto;
+  transform: scale(1);
+  transition: all $time-cubic;
+
+  &:hover {
+    z-index: 2;
+    transform: scale(1.05);
+  }
+
+  &:hover .GalleryListImg {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+      1px 4px 6px rgba(0, 0, 0, 0.16);
+  }
+
+  &:hover .GalleryListTitle {
+    white-space: normal;
+  }
+
+  @media screen and (min-width: $tablet-general) {
+    max-width: 294px;
+  }
+
+  @media screen and (min-width: $desktop-up) {
+    max-width: 274px;
+  }
+}
+
+.GalleryListImg {
+  display: block;
+  height: 398px;
+  width: 280px;
+  border-radius: 5px;
+
+  box-shadow: none;
+  transition: all $time-cubic;
+
+  @media screen and (min-width: $tablet-general) {
+    width: 294px;
+  }
+
+  @media screen and (min-width: $desktop-up) {
+    width: 274px;
+  }
+}
+
+.GalleryListCard {
+  padding-top: 10px;
+}
+
+.GalleryListTitle {
+  max-height: 44px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-transform: uppercase;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  color: $primary-title-text-color;
+}
+
+.link {
+  text-decoration: none;
+  height: 100%;
+}

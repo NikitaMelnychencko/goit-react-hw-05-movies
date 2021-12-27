@@ -1,0 +1,19 @@
+@import 'style/shared';
+
+.CardList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  overflow-y: auto;
+  max-height: 447px;
+}
+.Card {
+  width: 100px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+}
+.Name {
+}
+.Character {
+}
