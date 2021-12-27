@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { renderMovieGlobal } from 'AppServise';
 import Gallery from 'components/Gallery/Gallery';
+import { useHistory, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Form from 'components/Form/Form';
@@ -14,12 +15,16 @@ const MoviesPage = () => {
   const [movies, setMovies] = useState(null);
   const [status, setStatus] = useState('idle');
   const [page, setPage] = useState(1);
+  const location = useLocation();
+  const history = useHistory();
+  const sortOrder = new URLSearchParams(location.search).get('searchBy');
 
-  const handleNameChange = e => {
-    setSearchName(e.currentTarget.value.toLowerCase());
-  };
   useEffect(() => {
     if (!submitName) {
+      if (sortOrder) {
+        setSubmitName(sortOrder);
+        setStatus('pending');
+      }
       return;
     }
     renderMovieGlobal(page, submitName).then(data => {
@@ -32,6 +37,10 @@ const MoviesPage = () => {
     });
   }, [page, submitName]);
 
+  const handleNameChange = e => {
+    setSearchName(e.currentTarget.value.toLowerCase());
+  };
+
   const handleSubmit = e => {
     e.preventDefault();
     if (searchName.trim() === '') {
@@ -42,6 +51,10 @@ const MoviesPage = () => {
     setPage(1);
     setSearchName('');
     setStatus('pending');
+    history.push({
+      ...location,
+      search: `searchBy=${searchName}`,
+    });
   };
 
   return (

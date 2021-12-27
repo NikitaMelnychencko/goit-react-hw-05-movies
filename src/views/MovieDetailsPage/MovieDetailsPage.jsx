@@ -25,7 +25,6 @@ const MovieDetailsPage = () => {
   const location = useLocation();
   const history = useHistory();
   const { url } = useRouteMatch();
-  console.log(location);
   useEffect(() => {
     renderParamsCard(params.movieId).then(data => setMovies(data));
   }, []);

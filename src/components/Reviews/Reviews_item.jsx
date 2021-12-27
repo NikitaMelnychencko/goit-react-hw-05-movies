@@ -1,6 +1,5 @@
 import s from './Reviews.module.scss';
 const ReviewsItem = ({ data }) => {
-  console.log(data);
   return (
     <>
       <li className={s.Item}>
