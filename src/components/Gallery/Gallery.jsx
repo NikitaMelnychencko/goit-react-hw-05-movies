@@ -7,7 +7,7 @@ const Gallery = ({ movies }) => {
   return (
     <>
       <ul className={s.GalleryList}>
-        {movies.results.map(movie => (
+        {movies.map(movie => (
           <li className={s.GalleryListItem} key={movie.id}>
             <Link
               to={{
