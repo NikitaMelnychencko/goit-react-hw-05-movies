@@ -48,7 +48,7 @@ const Gallery = ({ movies }) => {
   );
 };
 Gallery.propTypes = {
-  movies: PropTypes.object.isRequired,
+  movies: PropTypes.array.isRequired,
 };
 
 export default Gallery;
