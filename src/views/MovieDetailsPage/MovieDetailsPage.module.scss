@@ -15,7 +15,6 @@
 }
 
 .ModalOneMovieScrollBox {
-  max-height: calc(100vh - 195px);
   padding: 0 20px 0 20px;
 
   @media screen and (min-width: $tablet-general) {
@@ -32,19 +31,15 @@
 .ModalOneMovieImageBox {
   display: flex;
   justify-content: center;
+  margin-bottom: 30px;
 
   @media screen and (min-width: $tablet-general) {
     margin-right: 32px;
+    margin-bottom: 0;
   }
 }
 
 .ModalOneMovieTextBox {
-  width: 240px;
-
-  @media screen and (min-width: $tablet-general) {
-    width: 450px;
-  }
-
   @media screen and (min-width: $desktop-up) {
     width: 396px;
   }
@@ -52,29 +47,12 @@
 
 .ModalOneMovieImage {
   position: relative;
-  width: 240px;
-  height: 357px;
   border-radius: 5px;
   background-color: $primary-background;
-  margin-bottom: 30px;
-  overflow: hidden;
-
-  @media screen and (min-width: $tablet-general) {
-    width: 264px;
-    height: 374px;
-  }
-
-  @media screen and (min-width: $desktop-up) {
-    width: 396px;
-    height: 478px;
-  }
 }
 
 .ModalOneMovieImagePicture {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  height: 100%;
   width: 100%;
 }
 
@@ -159,7 +137,6 @@
   font-size: 12px;
   line-height: 20px;
   color: $primary-text-color;
-  margin-bottom: 21px;
 }
 
 .ModalOneMovieButtonBox {
@@ -195,4 +172,13 @@ caption {
   & + .Link {
     margin-left: 20px;
   }
+}
+.goBackBox {
+  display: flex;
+}
+.goBack {
+  padding: 20px;
+  background-color: blue;
+  border-radius: 50%;
+  color: #ffffff;
 }

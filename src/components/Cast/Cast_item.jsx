@@ -8,11 +8,11 @@ const CastItem = ({ data }) => {
           <img
             src={`https://image.tmdb.org/t/p/w500${data.profile_path}`}
             alt={data.name}
-            width="100px"
-            height="150px"
+            width="200px"
+            height="250px"
           />
         ) : (
-          <img src={img} alt={data.name} width="100px" height="150px" />
+          <img src={img} alt={data.name} width="200px" height="250px" />
         )}
         <h4 className={s.Name}>{data.name}</h4>
         <p className={s.Character}>{data.character}</p>

@@ -33,30 +33,23 @@ const MovieDetailsPage = () => {
   };
   return (
     <>
-      <button type="button" onClick={onGoBack}>
-        Go Back
-      </button>
+      <div className={s.goBackBox}>
+        <button type="button" className={s.goBack} onClick={onGoBack}>
+          Go Back
+        </button>
+      </div>
       {movies && (
         <div>
           <div className={s.ModalOneMovie}>
             <div className={s.ModalOneMovieScrollBox}>
               <div className={s.ModalOneMovieImageBox}>
                 <div className={s.ModalOneMovieImage}>
-                  <picture className={s.ModalOneMovieImagePicture}>
-                    <source
-                      srcSet={`https://image.tmdb.org/t/p/w500${movies.poster_path}`}
-                      media="(min-width: 1024px)"
-                    />
-                    <source
-                      srcSet={`https://image.tmdb.org/t/p/w500${movies.poster_path}`}
-                      media="(min-width: 768px)"
-                    />
-                    <img
-                      srcSet={`https://image.tmdb.org/t/p/w500${movies.poster_path}`}
-                      src={`https://image.tmdb.org/t/p/w500${movies.poster_path}`}
-                      alt={movies.title}
-                    />
-                  </picture>
+                  <img
+                    className={s.ModalOneMovieImagePicture}
+                    srcSet={`https://image.tmdb.org/t/p/w500${movies.poster_path}`}
+                    src={`https://image.tmdb.org/t/p/w500${movies.poster_path}`}
+                    alt={movies.title}
+                  />
                 </div>
               </div>
               <div className={s.ModalOneMovieTextBox}>
